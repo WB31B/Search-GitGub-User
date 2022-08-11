@@ -6,13 +6,12 @@ import { removeFavorite } from "../features/favorites/favoritesSlice";
 const FavoriteList = () => {
   const { favorites } = useSelector(state => state.favorites);
 
-
   const dispatch = useDispatch();
 
   return (
     <div>
       <h1 className="text-3xl text-center mt-7">Favorite</h1>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         { favorites.map(user => (
           <div key={user.id} className="p-3 m-3 flex items-center flex-col shadow-xl">
             <div className="flex items-center flex-col">
