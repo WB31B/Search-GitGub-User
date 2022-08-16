@@ -19,6 +19,9 @@ export const githubApi = createApi({
     getUserRepos: build.query({
       query: (username) => ({
         url: `users/${username}/repos`,
+        params: {
+          per_page: 5
+        }
       })
     })
   })
