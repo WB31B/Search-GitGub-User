@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import favoritesSlice from '../features/favorites/favoritesSlice';
-import reposSlice from '../features/repos/reposSlice';
-import userSlice from '../features/user/userSlice';
+import { githubApi } from './github/github.api';
+import githubSlice from './github/githubSlice';
 
 export const store = configureStore({
   reducer: {
-    favorites: favoritesSlice,
-    user: userSlice,
-    repos: reposSlice
-  }
+    [githubApi.reducerPath]: githubApi.reducer,
+    favorite: githubSlice,
+  },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(githubApi.middleware)
 })
+
